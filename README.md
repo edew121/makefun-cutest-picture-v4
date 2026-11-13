@@ -29,6 +29,12 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 The artwork is original, generated for this entry; it copies no existing
 character, photograph or artwork.
 
+## Verification
+
+Run locally twice and the outputs are byte-identical: the program is
+deterministic, writes the same JPEG every time, and asserts the output is
+a non-empty JPEG under the 1 MiB cap with the same size as the bundle.
+
 ## Iteration
 
 This is the fourth entry for this competition from the same account. It

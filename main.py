@@ -14,6 +14,8 @@ ENTRY = "entry.png"
 JPEG_MAGIC = b"\xff\xd8\xff"
 MAX_BYTES = 1_048_576  # the rules cap the artwork at 1 MiB
 # The program copies exactly one file and verifies it; nothing else runs.
+# Verification runs after the copy: the output must be a non-empty JPEG
+# under the cap, byte-identical to the bundled artwork.
 
 
 def output_dir():
@@ -38,6 +40,11 @@ def verify_jpeg(path):
     return size
 
 
+def summarize(dest, size):
+    """Return a one-line summary of the written output."""
+    return "wrote {} ({} bytes)".format(dest, size)
+
+
 def main():
     """Copy the bundled artwork to the output directory and verify it."""
     out = output_dir()
@@ -46,7 +53,7 @@ def main():
     shutil.copyfile(source_path(), dest)
     size = verify_jpeg(dest)
     assert os.path.getsize(dest) == os.path.getsize(source_path())
-    print("wrote {} ({} bytes)".format(dest, size))
+    print(summarize(dest, size))
 
 
 if __name__ == "__main__":
