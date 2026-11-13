@@ -12,6 +12,7 @@ import shutil
 
 ENTRY = "entry.png"
 JPEG_MAGIC = b"\xff\xd8\xff"
+MAX_BYTES = 1_048_576  # the rules cap the artwork at 1 MiB
 # The program copies exactly one file and verifies it; nothing else runs.
 
 
@@ -30,6 +31,7 @@ def verify_jpeg(path):
     """Check the file is a non-empty JPEG by its magic bytes."""
     size = os.path.getsize(path)
     assert size > 0, "output is empty"
+    assert size <= MAX_BYTES, "output exceeds the 1 MiB cap"
     with open(path, "rb") as handle:
         magic = handle.read(3)
     assert magic == JPEG_MAGIC, "output is not a JPEG"

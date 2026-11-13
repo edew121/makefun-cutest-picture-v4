@@ -28,3 +28,12 @@ mkdir -p out && MAKEFUN_OUTPUT_DIR=out python3 main.py
 
 The artwork is original, generated for this entry; it copies no existing
 character, photograph or artwork.
+
+## Iteration
+
+This is the fourth entry for this competition from the same account. It
+varies the earlier "Red Panda Hug": the same chubby baby red panda and the
+same tiny yellow duckling, cheeks touching as before — but now sitting
+together in a sunny flower garden, with a tiny daisy behind the red
+panda's ear. The winning pair is unchanged; only the setting and the small
+charm touch are new.
